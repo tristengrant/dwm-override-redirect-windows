@@ -1,0 +1,21 @@
+--- dwm-clean/dwm.c	2026-01-10 04:33:58.000000000 -0600
++++ dwm-patched/dwm.c	2026-01-29 14:56:49.526758425 -0600
+@@ -20,6 +20,7 @@
+  *
+  * To understand everything else, start reading main().
+  */
++#include <X11/XF86keysym.h>
+ #include <errno.h>
+ #include <locale.h>
+ #include <signal.h>
+@@ -1812,6 +1813,10 @@
+ 			setclientstate(c, WithdrawnState);
+ 		else
+ 			unmanage(c, 0);
++    } else if (XGetWindowAttributes(dpy, ev->window, &wa) && wa.override_redirect) {
++        /* Handle override-redirect windows (like Krita on-canvas color selector) */
++        if (selmon->sel)
++            focus(selmon->sel);
+ 	}
+ }
+ 
