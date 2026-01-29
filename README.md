@@ -7,7 +7,7 @@ It was originally added to support applications like Krita’s on-canvas color s
 
 - Target: dwm 6.7
 - Features: Handles override-redirect windows to prevent focus loss or mapping issues.
-- Includes: Adds `#include <X11/XF86keysym.h>` to handle media keys. Remove at like if you don't want/need media keys.
+- Includes: Adds `#include <X11/XF86keysym.h>` to handle media keys. Remove if you don't want/need media keys.
 
 ## Installation
 
