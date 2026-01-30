@@ -1,5 +1,5 @@
---- dwm-clean/dwm.c	2026-01-29 17:08:59.639611773 -0600
-+++ dwm-patched/dwm.c	2026-01-29 17:11:43.663063893 -0600
+--- a/dwm.c	2026-01-29 17:08:59.639611773 -0600
++++ b/dwm.c	2026-01-29 17:11:43.663063893 -0600
 @@ -20,6 +20,7 @@
   *
   * To understand everything else, start reading main().
@@ -19,10 +19,10 @@
  			setclientstate(c, WithdrawnState);
  		else
  			unmanage(c, 0);
-++    } else if (XGetWindowAttributes(dpy, ev->window, &wa) && wa.override_redirect) {
-++        /* Handle override-redirect windows (like Krita on-canvas color selector) */
-++        if (selmon->sel)
-++            focus(selmon->sel);
++     } else if (XGetWindowAttributes(dpy, ev->window, &wa) && wa.override_redirect) {
++         /* Handle override-redirect windows (like Krita on-canvas color selector) */
++         if (selmon->sel)
++             focus(selmon->sel);
  	}
  }
  
